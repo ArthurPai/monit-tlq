@@ -10,15 +10,6 @@ template "/etc/monitrc" do
   notifies :run, "execute[restart-monit]", :immediately
 end
 
-# disable traditional init.d way of starting monit
-bash "disabling init.d script for monit" do
-  user "root"
-  code <<-EOC
-    update-rc.d -f monit remove
-  EOC
-  #  /etc/init.d/monit stop
-end
-
 # Use upstart to manage monit
 template '/etc/init/monit.conf' do
   owner "root"
