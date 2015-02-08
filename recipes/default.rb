@@ -2,7 +2,7 @@
 package 'monit'
 
 # update the main monit configuration file
-template "/etc/monit/monitrc" do
+template "/etc/monitrc" do
   owner "root"
   group "root"
   mode "0700"
